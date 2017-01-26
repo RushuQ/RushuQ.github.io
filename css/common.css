@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+.gap,
+html,
+body,
+ul,
+li,
+dd,
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+i,
+span {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #eeeeee !important;
+}
+ul,
+li {
+  list-style: none;
+  text-decoration: none;
+}
+i {
+  font-style: normal;
+}

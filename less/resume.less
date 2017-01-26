@@ -1,0 +1,100 @@
+//style of heading nav
+@screen-sm:767px;
+@head-color: #f2f2f2;
+.wide {
+  width: 100%;
+  height: 100%;
+}
+header {
+    padding: 10px 0;
+    background-color: @head-color;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+nav.navbar {
+    background: @head-color !important;
+    margin: 0;
+    border: none;
+    li.active > a {
+        color:orange !important;
+        background-color: @head-color !important;
+    }
+    .navbar-header .navbar-brand img.img-circle {
+      width: 50px;
+      margin-top: -15px;
+    }
+}
+@media (max-width:@screen-sm){
+   header {
+    padding: 0;
+    //position: relative;
+   }
+   .navbar-nav.dropdowns {
+      margin:0 -15px;
+   }
+   .navbar-header .navbar-brand img.img-circle {
+      width: 40px !important;
+      margin-top: -10px !important;
+    }
+}
+
+//style of acticle's picture
+body {
+  overflow: hidden;
+}
+article {
+  &:extend(.wide);
+  position: relative;
+  -webkit-transform: translateY(0%);
+       -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+         -o-transform: translateY(0%);
+            transform: translateY(0%);
+  div.package {
+    &:extend(.wide);
+    
+    &.animate {//动画效果
+      -webkit-transition: all 1s cubic-bezier(0.86, 0, 0.03, 1);
+         -moz-transition: all 1s cubic-bezier(0.86, 0, 0.03, 1);
+          -ms-transition: all 1s cubic-bezier(0.86, 0, 0.03, 1);
+           -o-transition: all 1s cubic-bezier(0.86, 0, 0.03, 1);
+              transition: all 1s cubic-bezier(0.86, 0, 0.03, 1);
+    }
+    .section {
+      &:extend(.wide);
+      overflow: hidden;
+      position: relative;
+        background: url(../image/bg-2.jpg) no-repeat center center;
+        background-size: 100% 100%;
+    }
+  }
+}
+
+//style of the right navbar
+
+.spot {
+  position: fixed;
+  top: 40%;
+  right: 4%;
+  li {
+    margin-top: 5px;
+    a {
+      width: 20px;
+      height: 20px;
+      background-color: rgba(242, 242, 242, .6);
+      border: 1px solid orange;
+      display: block;
+      border-radius: 50%;
+      transition: all .4s;
+      &:hover {
+        background-color: rgba(242, 242, 242, .9);
+      }
+    }
+  }
+}
+.on {
+  background-color: orange !important;
+  border:1px solid @head-color !important;
+}
