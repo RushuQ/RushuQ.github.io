@@ -16,7 +16,7 @@
           this.$serialSpot.append('<li index="'+i+'"><a href="#"></a></li>');
         }
         this.$serialSpot.addClass('spot').find('li:first a').addClass('on');
-        this.$parent.append(this.$serialSpot);
+        $('body').append(this.$serialSpot);
         this._spotTurn();
       },
       //触发圆点点击事件
