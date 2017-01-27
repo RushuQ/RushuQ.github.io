@@ -86,3 +86,8 @@ article div.package .section {
   background-color: orange !important;
   border: 1px solid #f2f2f2 !important;
 }
+#known {
+  position: absolute;
+  top: 26%;
+  left: 12%;
+}

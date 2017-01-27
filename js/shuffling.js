@@ -24,8 +24,6 @@
         var _this = this;
         this.$serialSpot.on('click','li',function(){
           var $this = $(this);
-          console.log($this);
-               
           var alt = $this.index();
           _this.$serialSpot.find('li a').removeClass('on');
           $this.find('a').addClass('on');
