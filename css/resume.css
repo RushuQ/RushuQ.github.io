@@ -89,5 +89,56 @@ article div.package .section {
 #known {
   position: absolute;
   top: 26%;
-  left: 12%;
+  left: 10%;
 }
+.sec-title {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  font-weight: bolder;
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.col-model {
+  margin-top: 20%;
+  /* position: absolute;
+  top: 22%;
+  width: 95%;
+  .col-pic {
+    div {
+      text-align: center;
+      img {
+        width: 80%;
+        border-radius: 14px;
+        border: 3px solid #fff;
+      }
+    }
+  } */
+}
+.col-model p {
+  text-align: center;
+}
+/* @padding: 18px;
+footer {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  background: #000;
+  padding: @padding 0;
+  z-index: 999;
+  .row {
+    margin: auto;
+    color: #eee;
+    li a {
+      color: @color;
+      font-size: 18px;
+      &.col-link {
+        &:hover {
+          color: #fff;
+        }
+      }
+      
+    }
+  }
+} */

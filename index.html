@@ -41,10 +41,10 @@
                             <a href="#">首页</a>
                         </li>
                         <li>
-                            <a href="#">作品集</a>
+                            <a href="#works">作品集</a>
                         </li>
                         <li>
-                            <a href="#">联系方式</a>
+                            <a href="#intro">联系方式</a>
                         </li>
                     </ul>
                 </div>
@@ -56,20 +56,90 @@
     <article>
         <div class="package" id="pack">
             <!-- 主页 -->
-            <div class="section index1">
-                <h1></h1>
+            <div class="section index1" id="intro">
+                <h1 ></h1>
             </div>
             <!-- 经历采用轮播 -->
             <div class="section index2">
-                
+                <blockquote class="sec-title">
+                  <p>我的经历——experience</p>
+                </blockquote>
+                <div class="index2-lb container">
+                    <div class="lb-center container" id="lb-pack">
+                        <div class="lb-wrap">
+                            
+                        </div>
+                        <nav>
+                            <span class="lb-left"></span>
+                            <span class="lb-right"></span>
+                        </nav>
+                    </div>
+                </div>
             </div>
             <!-- 知识水平套用echart -->
             <div class="section index3">
+                <blockquote class="sec-title">
+                  <p>专业技能——skill</p>
+                </blockquote>
                 <div id="known" style="width:80%;height:60%;"></div>
             </div>
             <!--作品集采用bs的row展示-->
-            <div class="section index4">
-                
+            <div class="section index4" id="works">
+                <blockquote class="sec-title">
+                  <p>我的作品——demo</p>
+                </blockquote>
+                <div class="container col-model ">
+                    <p>点击下列图片即可查看详情</p>
+                    <div class="row col-pic">
+                        <div class="col-sm-3 col-xs-6 col-photo
+                        ">
+                            <a href="#">
+                                <img src="image/snake.jpg" />
+                                <div class="photo">
+                                    <h2>贪吃蛇</h2>
+                                    <span><img src="image/demo-link.png" /></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 col-photo">
+                            <a href="#">
+                                <img src="image/pic2.png"/>
+                                <div class="photo">
+                                    <h2>模拟天猫page</h2>
+                                    <span><img src="image/demo-link.png" /></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 col-photo">
+                            <a href="#">
+                                <img src="image/snake.jpg" />
+                                <div class="photo">
+                                    <h2>贪吃蛇</h2>
+                                    <span><img src="image/demo-link.png" /></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-3 col-xs-6 col-photo">
+                            <a href="#">
+                                <img src="image/snake.jpg" />
+                                <div class="photo">
+                                    <h2>贪吃蛇</h2>
+                                    <span><img src="image/demo-link.png" /></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div>
+                        <ul class="row text-center container col-link" style="width: 70%;">
+                            <li class="col-xs-6">
+                                <a href="#intro">通讯</a>
+                            </li>
+                            <li class="col-xs-6"><a href="https://github.com/RushuQ">GitHub</a></li>
+                        </ul>
+                    </div>
+                </footer>
             </div>
         </div>
     </article>

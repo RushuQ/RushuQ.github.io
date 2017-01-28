@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#pack").shuffling();
+//图标
     var myChart = echarts.init(document.getElementById('known'));
     var dataAxis = ['HTML', 'CSS3', 'JAVASCRIPT', 'JQUERY', 'BOOTSTRAP', 'LESS', 'PHOTOSHOP'];
     var data = [94, 90, 80, 84, 85, 88, 90];
@@ -10,14 +11,14 @@ $(document).ready(function(){
     }
     option = {
         title: {
-            text: '专业技能',
+            text: '自我评比',
             left:'40%',
             textStyle: {
-                color: '#fff',
+                color: '#443323',
                 fontStyle: 'normal',
                 fontWeight: 'bolder',
                 fontFamily: 'sans-serif',
-                fontSize: 28,
+                fontSize: 20,
             }
         },
         tooltip: {},
@@ -39,7 +40,10 @@ $(document).ready(function(){
         },
         yAxis: {
             axisLine: {
-                show: false
+                show: false,
+                lineStyle: {
+                    color: '#fff'
+                }
             },
             axisTick: {
                 show: false
@@ -105,4 +109,7 @@ $(document).ready(function(){
              
     })
     myChart.setOption(option);
+
+//作品展示
+    
 });
