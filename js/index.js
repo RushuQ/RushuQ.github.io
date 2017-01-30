@@ -111,5 +111,5 @@ $(document).ready(function(){
     myChart.setOption(option);
 
 //作品展示
-    
+    $("#lb-pack").showSlip();
 });
