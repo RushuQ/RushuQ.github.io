@@ -34,6 +34,14 @@
       _triggerEvent : function(obj,event) {
         this.trigger(obj,event);
       },
+      _change :function(){//点击头部导航进行圆点跳转
+        var _this = this;
+          $('header ul li').on('click',function(){
+            var alt = $(this).index();
+            _this.$serialSpot.find('li a').removeClass('on');
+            _this.$serialSpot.find('li:eq('+alt+') a').addClass('on');
+          })
+      },
       //绑定事件功能
       _bindEvent : function() {
         var _this = this;//注意先定义作用域，后面的作用域即将改变
@@ -56,19 +64,23 @@
                 "-o-transform": "translateY(-"+_this.index+"00%)",
                 "-webkit-transform": "translateY(-"+_this.index+"00%)"
             });
-            window.setTimeout(function(){
+            setTimeout(function(){ 
               _this.$serialSpot.find('li a').removeClass('on');//移除所有的a中所有的on属性
               _this.$serialSpot.find('li:eq('+_this.index+') a').addClass('on');//找到当前序号相对应的圆点并加上on
+              _this._triggerEvent("afterEvent",{
+                index: _this.index
+              });
               _this.lock = true;
             }, 1000 );
           }
-        })
+        });
       }
    }
    $.fn[plug] = function(){
     $.extend(this,_DEFAULT_);//继承
     this._init();
     this._spotBorn();
+    this._change();
     this._bindEvent();
     return this;
    }

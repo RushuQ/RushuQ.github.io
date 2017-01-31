@@ -214,6 +214,7 @@ p {
                   perspective: 1000px;
       a {
         width: 100%;
+        min-width: 84px;
         height: 100%;
         display: block;
         position: absolute;
@@ -446,7 +447,15 @@ p {
       font-size: 12px;
     }
     h2 {
-      padding-bottom: 12px;
+      padding-bottom: 4px;
+    }
+  }
+}
+
+@media (max-width:374px){
+  .intro-right {
+    p:not(.res) {
+      font-size: 14px !important;
     }
   }
 }
@@ -487,3 +496,19 @@ footer {//style of footer
     }
   }
 } 
+.boxTip {
+  background-color: rgba(27, 43, 136, 0.5);
+  color: #ecfdfb;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all .8s;
+  &.pad {
+     padding:8px 4px;
+  }
+}
+@media (max-width:490px){
+  .boxTip {
+    width: 80%;
+  }
+}

@@ -40,21 +40,6 @@ a {
 img {
   border: 0;
 }
-@font-face {
-  font-family: 'iconfont';
-  src: url('http://at.alicdn.com/t/font_qiagarbculmlhaor.eot');
-  src: url('http://at.alicdn.com/t/font_qiagarbculmlhaor.eot?#iefix') format('embedded-opentype'), url('http://at.alicdn.com/t/font_qiagarbculmlhaor.woff') format('woff'), url('http://at.alicdn.com/t/font_qiagarbculmlhaor.ttf') format('truetype'), url('http://at.alicdn.com/t/font_qiagarbculmlhaor.svg#iconfont') format('svg');
-  
-  /* project id 226352 */
-}
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
 .animate,
 header,
 .index2-lb .lb-center nav span,
@@ -259,6 +244,7 @@ p a.button {
 }
 .index2-lb .lb-center .lb-wrap a {
   width: 100%;
+  min-width: 84px;
   height: 100%;
   display: block;
   position: absolute;
@@ -465,7 +451,12 @@ p a.button {
     font-size: 12px;
   }
   .lb-pack-div h2 {
-    padding-bottom: 12px;
+    padding-bottom: 4px;
+  }
+}
+@media (max-width: 374px) {
+  .intro-right p:not(.res) {
+    font-size: 14px !important;
   }
 }
 @media screen and (min-width: 490px) and (max-width: 770px) {
@@ -501,4 +492,20 @@ footer .row li a {
 }
 footer .row li a.col-link:hover {
   color: #fff;
+}
+.boxTip {
+  background-color: rgba(27, 43, 136, 0.5);
+  color: #ecfdfb;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all .8s;
+}
+.boxTip.pad {
+  padding: 8px 4px;
+}
+@media (max-width: 490px) {
+  .boxTip {
+    width: 80%;
+  }
 }
