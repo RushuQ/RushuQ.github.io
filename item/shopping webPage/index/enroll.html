@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>注册页面</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet/index.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheet/enroll.css" />
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="#"><img src="../images/logo3.PNG"/></a></div>
+    </header>
+    <section>
+        <div class="winth form">
+            <form action="entry.html" onsubmit="return checkForm()">
+                <div class="form-head">
+                    <span class="newMan">新用户注册</span>
+                    <span>已有账号?<a href="entry.html">立即登陆</a></span>
+                </div>
+                <div class="list">
+                    <span>账号</span>
+                    <input type="text" id="user" placeholder="请输入您的手机号"/>
+                </div>
+                <div class="list">
+                    <span>密码</span>
+                    <input type="password" id="password" placeholder="设置登陆密码"/>
+                </div>
+                <div class="list">
+                    <span>城市</span>
+                    <input type="text" id="city" placeholder="您所在城市" readonly />
+                    <i class="iconfont icon">&#xe6a6;</i>
+                    <div class="hide">请选择你所在城市</div>
+                    
+                    <div class="select">
+                        <ul>
+                            <li><a href="javascript:void(0);">北京</a></li>
+                            <li><a href="javascript:void(0);">香港</a></li>
+                            <li><a href="javascript:void(0);">深圳</a></li>
+                            <li><a href="javascript:void(0);">广州</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="list">
+                    <span>邮箱</span>
+                    <input type="text" id="email" placeholder="您的邮箱账号"/>
+                </div>
+                <input type="submit" id="submit" value="确定登录" class="loginBtn"/>
+            </form>
+        </div>
+    </section>
+    <footer >
+        <div class="foot-range">
+            <ul>
+                <li><i class="iconfont">&#xe61b;</i>500强企业 品质保证</li>
+                <li><i class="iconfont">&#xe61c;</i>7天退货 15天换货</li>
+                <li><i class="iconfont">&#xe676;</i>99元起免邮费</li>
+                <li><i class="iconfont">&#xe662;</i>450家维修网点 全国联保</li>
+            </ul>
+        </div>
+        <div class="foot-classify">
+            <p class="friend-link tl">友情链接：<a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../javascripts/checkForm.js"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+        var select=document.getElementsByClassName("select")[0];
+        document.getElementsByClassName("hide")[0].onclick=function(){
+            select.style.display="block";
+            document.getElementsByClassName("icon")[0].style.display="block";
+            var ul=this.nextElementSibling.children[0];
+            for(var i=0;i<ul.children.length;i++){
+                ul.children[i].onclick=function(){
+                    var ull=this.parentElement.parentElement;
+                    var text=ull.previousElementSibling;
+                    text.innerText=this.innerText;
+                    ull.style.display="none";
+                    document.getElementsByClassName("icon")[0].style.display="none";
+                    this.parentElement.parentElement.previousElementSibling.children[0]="";
+                    text.value=ull.previousElementSibling.textContent;
+                }
+            }
+        };
+        if(localStorage.getItem("username") && localStorage.getItem("password")){
+            testForm.tipRect("您的账号已登录!");
+            window.location.href="/index/index.html";
+        }
+    }
+    function checkForm(){
+        var user=document.getElementById("user").value;
+        var password=document.getElementById("password").value;
+        var email=document.getElementById("email").value;
+        var city=document.getElementsByClassName("hide")[0].value;
+        if(testForm.checkPhone(user,"请输入正确的手机号码")&&testForm.checkPassword(password,"密码有误，请重新输入")&&testForm.checkCity(city,"请选择城市")&&testForm.checkEmail(email,"您的邮箱格式错误，请重新输入")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    </script>
+</body>
+</html>

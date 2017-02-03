@@ -1,0 +1,48 @@
+body,html {
+    margin: 8px 0;
+    padding: 0;
+}
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+.wall {
+    margin: auto;
+    background: url(../images/bg.png);
+    width: 800px;
+    padding: 87px 80px;
+}
+i {
+    font-style: normal;
+}
+.score {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #b35208;
+    text-align: center;
+    padding: 10px 0;
+}
+.col {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.snake {
+    background: url('../images/box.png') no-repeat;
+    background-size: 100% 100%;
+}
+.boxTip {
+    padding: 20px 24px;
+    background-color: #333;
+    font-size: 46px;
+    font-weight: bolder;
+    color: orange;
+    position: absolute;
+    top: 18%;
+    left: 40%;
+    border-radius: 6px;
+}
+.egg {
+    background: url(../images/circle.png) no-repeat;
+    background-size: 100% 100%;
+}

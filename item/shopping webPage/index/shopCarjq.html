@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>购物车实现</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheet/shopCarjq.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheet/index.css" />
+    <script type="text/javascript" src="../javascripts/shopCarjq.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="#"><img src="../images/logo3.PNG"/></a></div>
+    </header>
+    <div class="bs-example">
+        <form onsubmit="return false">
+        <button class="addGoods">添加产品</button>
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>
+                            <label>
+                                <input type="checkbox"/>全选
+                            </label>
+                        </th>
+                        <th>商品信息</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>金额</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="model" >
+                        <td>
+                            <input type="checkbox"/>
+                            <a href="#"><img src="../images/1.jpg" /><input type="file" accept="image/*"/></a>
+                        </td>
+                        <td width="260px">
+                            <a href="#" class="desrc" contenteditable="true">请描述商品相关信息</a>
+                        </td>
+                        <td>￥<span class="unit-price" contenteditable="true">30.00</span></td>
+                        <td>
+                            <div class="count">
+                                <a href="#" class="sub">-</a><input value="1"/><a href="#"class="add">+</a>
+                            </div>
+                        </td>
+                        <td>
+                            ￥<span class="sum-price" readonly>30.00</span>
+                        </td>
+                        <td class="operate">
+                            <a href="#">移入收藏夹</a>
+                            <a href="#" class="del">删除</a>
+                            <a href="#" class="same">相似宝贝<i>∨</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer">
+                <span>已选商品<p>0</p>件</span>
+                 <span>合计(不含运费):￥<p>0.00</p></span>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <div class="foot-range">
+            <ul>
+                <li><i class="iconfont">&#xe61b;</i>500强企业 品质保证</li>
+                <li><i class="iconfont">&#xe61c;</i>7天退货 15天换货</li>
+                <li><i class="iconfont">&#xe676;</i>99元起免邮费</li>
+                <li><i class="iconfont">&#xe662;</i>450家维修网点 全国联保</li>
+            </ul>
+        </div>
+        <div class="foot-classify">
+            <p class="friend-link tl">友情链接：<a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../javascripts/jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $count=$(".bs-example table tbody tr td .count");
+            var $unit=$(".bs-example table tbody tr td .unit-price");
+            var $del=$(".bs-example table tbody tr td.operate .del");
+            var $head=$(".bs-example table thead tr th label input");
+            var $btn=$count.find('a');
+            $btn.on('click', function(ele,boolen) {
+                var $this=$(this);
+                var $par=$this.parents("tr");
+                var val=$this.parents("tr").find('.count input')[0];
+                if(!boolen){//boolen为非false时触发加减事件
+                    if($this.hasClass('add')){
+                        val.value++;
+                    }else if($this.hasClass('sub')){
+                        val.value==1?1&&rectTip("已经最小了，不能再少了"):val.value--;
+                    }
+                }
+                $par.find('.sum-price').html(($par.find('.unit-price').html()*val.value).toFixed(2));
+                addMoney();
+            });
+            $unit.on("blur",function(){//触发加号的点击事件来改变金额
+                $(this).parents("tr").find('.add').trigger('click',true);
+            });
+            $count.find("input").on("blur",function(event){
+                $(this).parents("tr").find('.add').trigger('click',true);
+            });
+            $del.on("click",function(){//删除列
+                $(this).parents("tr").remove();
+                addMoney();
+            })
+            $(".bs-example table thead tr th label input[type=checkbox]").on("change",function(){//每列的选择框的状态随“全选的状态而改变”
+                $(".bs-example table tbody tr td input[type=checkbox]").prop("checked",$(this).prop("checked"));
+                if($(this).prop("checked")){
+                    $(this).parents("table").find("tbody tr").addClass("select");
+                }else{
+                    $(this).parents("table").find("tbody tr").removeClass("select")
+                }
+                addMoney();
+            });
+            $(".bs-example table tbody tr td input[type=checkbox]").on("change",function(){//当商品全都选中时，全选按钮处于打钩状态
+               var len=$(".bs-example table tbody tr td input:checked").length;
+               var $counts=$(".bs-example table tbody tr");
+               if(len==$counts.length-1){
+                $head.prop("checked",true);
+                $(this).parents("tr").addClass('select');
+               }else{
+                $head.prop("checked",false);
+                $(this).parents("tr").removeClass('select');
+               }
+                addMoney();    
+            });
+            $(".bs-example table tbody tr td a input[type=file]").on("change",function(){
+                var img=this.value;
+                if(!/\.(gif|jpg|jpeg|png|gif|jpg|png)$/.test(img)){
+                    rectTip("图片格式必须是.gif,jpeg,jpg,png等一种");
+                    return false;
+                }//正则判断选择的图片格式
+                var f=this.files[0];
+                var src=window.URL.createObjectURL(f);
+                $(this).prev().attr("src",src);
+            })
+            $(".bs-example form button").on("click",function(){//克隆模板列包括所有事件
+                var $tbody=$(".bs-example form table tbody");
+                var $model=$(".bs-example form table tr.model");
+                $model.clone(true).show().removeClass("model").appendTo($tbody);
+            });
+            function rectTip(text){//弹出提示框
+                var $dom=$("<div class=\"rect\"><div>");
+                $(document.body).append($dom);
+                $dom.html(text);
+                setTimeout(function(){
+                    $dom.hide();
+                },2000)
+            }
+            function addMoney(){//计算购物车总价
+                var money=0;
+                var num=$(".bs-example table tbody tr td input:checked").each(function(){
+                    money+=Number($(this).parents("tr").find("td span.sum-price").html());
+                }).size();//被选中的商品的个数
+                $(".footer span:first-child p").html(num);
+                $(".footer span:last-child p").html(money.toFixed(2));
+            }
+            
+        })
+    </script>
+</body>
+</html>

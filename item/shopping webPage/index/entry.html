@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>登录界面</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet/index.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheet/enroll.css" />
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="#"><img src="../images/logo3.PNG"/></a></div>
+    </header>
+    <section>
+        <div class="winth form">
+            <form action="index.html" onsubmit="return checkForm()">
+                <div class="form-head">
+                    <span class="newMan">用户登录</span>
+                    <span>未账号?<a href="enroll.html">立即注册</a></span>
+                </div>
+                <div class="list">
+                    <span>账号</span>
+                    <input type="text" id="user" placeholder="您的登陆手机号"/>
+                </div>
+                <div class="list">
+                    <span>密码</span>
+                    <input type="password" id="password" placeholder="您的登陆账号密码"/>
+                </div>
+                <input type="submit" id="submit" value="确定登录" class="loginBtn"/>
+            </form>
+        </div>
+    </section>
+    <footer >
+        <div class="foot-range">
+            <ul>
+                <li><i class="iconfont">&#xe61b;</i>500强企业 品质保证</li>
+                <li><i class="iconfont">&#xe61c;</i>7天退货 15天换货</li>
+                <li><i class="iconfont">&#xe676;</i>99元起免邮费</li>
+                <li><i class="iconfont">&#xe662;</i>450家维修网点 全国联保</li>
+            </ul>
+        </div>
+        <div class="foot-classify">
+            <p class="friend-link tl">友情链接：<a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a><a href="#">动脑学院</a><a href="#">腾讯课堂</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../javascripts/checkForm.js"></script>
+    <script type="text/javascript">
+    function checkForm(){
+        var username=document.getElementById("user").value;
+        var password=document.getElementById("password").value;
+        if(testForm.checkPhone(username,"请输入正确的手机号码")&&testForm.checkPassword(password,"密码有误，请重新输入")){
+            if(!checkWrong(username,password)){//ajax异步加载，需保障在可控制范围内调用函数
+                return false;
+            }
+        }
+    }
+    function checkWrong(username,password){//ajax请求数据
+        if(window.XMLHttpRequest){
+            var xhlr=new XMLHttpRequest();
+        }else{
+            var xhlr=new ActiveXObject("Microsoft.XMLHTTP");
+        };
+        xhlr.onreadystatechange=function(){
+            if(xhlr.status == 200 && xhlr.readyState == 4){//200为正常完成时的状态
+                //4为请求完成，且响应已就绪
+                var data=JSON.parse(xhlr.responseText);
+                if(data.data[0].username == username && data.data[1].password == password){
+                    testForm.tipRect("登录成功");
+                    window.location.href="index.html";
+                    localStorage.setItem("username",username);//在本地浏览器保存数据
+                    localStorage.setItem("password",password);
+                    return true;
+                }else{
+                    testForm.tipRect("用户名或密码错误");
+                    return false;
+                }
+           }  
+        };
+        xhlr.open("get","entry.json");
+        xhlr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=gb2312");//设置编码方法
+        xhlr.send();
+        return false;
+    };
+    window.onload=function(){//判断是否登录
+        if(localStorage.getItem("username") && localStorage.getItem("password")){
+            testForm.tipRect("您已登录，无需再登录");
+            window.location.href="/index/index.html";
+        }
+    }
+    </script>
+</body>
+</html>
