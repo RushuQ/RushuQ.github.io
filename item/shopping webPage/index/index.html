@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet/font_pc6lkesvkx6o5hfr/iconfont.css" />
     <link rel="stylesheet" type="text/css" href="../stylesheet/index.css" />
     <script type="text/javascript" src="../javascripts/index.js"></script>
-    <style type="text/css">
-    
-    </style>
 </head>
 <body>
     <header>
@@ -499,7 +497,7 @@
             </ul>
         </div>
         <div class="foot-classify">
-            <p class="friend-link tl">友情链接：<a href="#">阿里巴巴集团</a><a href="#">淘宝网</a><a href="#">聚划算</a><a href="#">蘑菇街</a><a href="#">天猫</a><a href="#">支付宝</a><a href="#">京东商城</a><a href="#">唯品会</a><a href="#">虾米音乐</a><a href="#">阿里妈妈</a><a href="#">阿里通信</a><a href="#">阿里云计算</a><a href="#">UC</a><a href="#">阿里星球</a><a href="#">阿里体育</a><a href="#">土豆</a><a href="#">优酷</a><a href="#">阿里健康</a><a href="#">飞猪</a><a href="#">阿里影业</a><a href="#">全球速变通</a><a href="#">网上银行</a><a href="#">当当网</a><a href="#">亚马逊</a></p>
+            <p class="friend-link tl">友情链接：<a href="#">天猫</a><a href="#">苏宁易购</a><a href="#">京东商城</a><a href="#">蘑菇街</a><a href="#">小红书</a><a href="#">唯品会</a><a href="#">亚马逊</a><a href="#">58同城</a><a href="#">优酷视频</a><a href="#">腾讯视频</a><a href="#">莎莎官网</a><a href="#">当当网</a><a href="#">聚划算</a><a href="#">特价商城</a><a href="#">淘抢购</a><a href="#">携程网</a></p>
         </div>
     </footer>
     <script type="text/javascript" src="../javascripts/lunbo.js"></script>
@@ -578,15 +576,18 @@
         navRight();
     }
     document.getElementsByClassName("btn")[0].onclick=function(){
-        window.location.href="/index/entry.html";
+        window.location.href="../index/entry.html";
+    }
+    document.getElementById("free").onclick = function(){
+        location.href="../index/enroll.html";
     }
     function navRight(){//判断是否登录来改变右导航的状态
         if(localStorage.getItem("username") && localStorage.getItem("password")){
-            document.getElementById("head").src="/images/cat2.jpg";
+            document.getElementById("head").src="../images/cat2.jpg";
             document.getElementById("btnB").innerHTML="去激活";
             document.getElementById("free").innerHTML="会员期待你的加入";
         }else{
-            document.getElementById("head").src="/images/cat1.png";
+            document.getElementById("head").src="../images/cat1.png";
             document.getElementById("btnB").innerHTML="请登录";
             document.getElementById("free").innerHTML="免费注册";
         }
