@@ -535,6 +535,9 @@ footer .row li a.col-link:hover {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+.sec-tip .sec-wrap .btn-show .col-xs-6 {
+  padding: 0 !important;
+}
 .sec-tip .sec-wrap .btn-show .col-xs-6 button {
   padding: 8px 20px;
   border-radius: 4px;
@@ -544,4 +547,10 @@ footer .row li a.col-link:hover {
   font-size: 17px;
   font-weight: bolder;
   color: #777;
+}
+@media (max-width: 400px) {
+  .sec-tip .sec-wrap img,
+  .sec-tip .btn-show {
+    width: 94% !important;
+  }
 }

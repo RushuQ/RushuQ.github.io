@@ -512,7 +512,7 @@ footer {//style of footer
     width: 80%;
   }
 }
-
+//style of items
 .sec-tip {
   position: absolute;
   top: 12%;
@@ -537,6 +537,7 @@ footer {//style of footer
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
       .col-xs-6 {
+        padding: 0 !important;
         button {
           padding: 8px 20px;
           border-radius: 4px;
@@ -548,6 +549,13 @@ footer {//style of footer
           }
         }
       }
+    }
+  }
+}
+@media (max-width:400px){
+   .sec-tip {
+    .sec-wrap img,.btn-show {
+      width: 94% !important;
     }
   }
 }
