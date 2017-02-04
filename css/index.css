@@ -509,3 +509,39 @@ footer .row li a.col-link:hover {
     width: 80%;
   }
 }
+.sec-tip {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: none;
+}
+.sec-tip .sec-wrap {
+  width: 80%;
+  height: 80%;
+}
+.sec-tip .sec-wrap img {
+  width: 80%;
+  height: 78%;
+  z-index: 1000 !important;
+}
+.sec-tip .sec-wrap .btn-show {
+  padding: 16px 0 !important;
+  margin: auto;
+  width: 80%;
+  background-color: rgba(4, 4, 4, 0.7);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.sec-tip .sec-wrap .btn-show .col-xs-6 button {
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin: auto;
+}
+.sec-tip .sec-wrap .btn-show .col-xs-6 button a {
+  font-size: 17px;
+  font-weight: bolder;
+  color: #777;
+}

@@ -130,3 +130,9 @@ $(document).ready(function(){
 //3D轮播调用
     $("#lb-pack").showSlip();
 });
+function showPage(obj){
+    obj.style.display = "block";
+    obj.onclick=function(){
+        this.style.display = "none";
+    }
+}
