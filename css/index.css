@@ -417,6 +417,9 @@ p a.button {
   .index2-lb .lb-wrap {
     width: 44% !important;
   }
+  .index2-lb .lb-wrap .lb-pack-div {
+    height: 310px !important;
+  }
   .index1 .intro-left {
     margin-top: 0 !important;
   }
