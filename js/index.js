@@ -12,9 +12,9 @@ $(document).ready(function(){
     })
 //echart柱形图
     var myChart = echarts.init(document.getElementById('known'));
-    var dataAxis = ['HTML', 'CSS', 'JAVASCRIPT', 'JQUERY', 'BOOTSTRAP', 'LESS', 'PHOTOSHOP'];
-    var dataTips = ['熟悉W3C标准，熟练使用标签和熟悉HTML5新定义标签，了解SVG和canvas',"熟悉div+CSS布局，了解CSS3 新加入的特性,了解CSS3动画","重视JS原生代码，将进行ES6学习","熟悉API巧使JQ写便利小插件","熟悉相应API，并熟练进行响应式开发","熟悉使用预编程Less","熟悉PS切图工具，进行简单操作"];
-    var data = [94, 90, 80, 84, 85, 88, 90];
+    var dataAxis = ['HTML', 'CSS', 'JAVASCRIPT', 'JQUERY', 'BOOTSTRAP', 'PHOTOSHOP','nodejs'];
+    var dataTips = ['熟悉W3C标准，熟练使用标签和熟悉HTML5新定义标签，了解SVG和canvas',"熟悉div+CSS布局，了解CSS3 新加入的特性,了解CSS3动画","重视JS原生代码熟悉API，将进行ES6学习","熟悉API巧使JQ写便利小插件,熟悉AJAX的运行","熟悉相应API，熟悉使用预编程Less,并灵活应用于响应式开发","熟悉PS切图工具，进行简单操作","会简单搭建后台服务和用于下载插件"];
+    var data = [94, 90, 82, 84, 89, 88,62];
     var yMax = 100;
     var dataShadow = [];
     for (var i = 0; i < data.length; i++) {
@@ -23,7 +23,11 @@ $(document).ready(function(){
     option = {
         title: {
             text: '自我评比',
+            subtext:'提示:可点击可滑动',
             left:'40%',
+            subtextStyle:{
+                color:'#e4edf5'
+            },
             textStyle: {
                 color: '#443323',
                 fontStyle: 'normal',

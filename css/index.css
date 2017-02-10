@@ -261,7 +261,7 @@ p a.button {
 .index2-lb .lb-center .lb-wrap a div {
   width: 100%;
   height: 300px;
-  background: url(../image/box-2.jpg) no-repeat;
+  background: url(../image/box-3.jpg) no-repeat;
   background-size: 100% 100%;
   z-index: 1000;
 }
@@ -385,7 +385,7 @@ p a.button {
 }
 .lb-pack-div {
   padding: 20px 0px;
-  color: #000;
+  color: #fff;
   overflow: hidden;
 }
 .lb-pack-div h2 {
@@ -398,7 +398,7 @@ p a.button {
   text-align: center;
   display: block;
   transform: scaleX(0.5);
-  color: #64070a;
+  color: #8bf9f5;
   padding: 8px;
 }
 .lb-pack-div li {
