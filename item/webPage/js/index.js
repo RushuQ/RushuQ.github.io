@@ -11,7 +11,7 @@ $(document).ready(function(){
         $(this).prev().attr("src",src);
     });
     //右边内容
-    $.getJSON('picData.json', function(date) {
+    $.getJSON('/data/picData', function(date) {
        var community = date.circle;
        var cares = date.myCare;
        var question = date.myWrong;
