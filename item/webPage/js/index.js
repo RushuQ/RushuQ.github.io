@@ -39,8 +39,8 @@ $(document).ready(function(){
            $hideDiv.is(":hidden")?$hideDiv.show():$hideDiv.hide();
         } 
     });
+    //点击“我要提问”弹出框
     $('.myAsk').on('click',function(){
-        //if()
         var $hideDiv = $(this).parents('.sec-center').find('div.sec-hide');
         if($hideDiv.is(":hidden")){
             $('.fly').show().find('.fly-write').val(""); 
@@ -48,13 +48,14 @@ $(document).ready(function(){
             return false;
         }
     });
+    //提问表单提交
     $("#submitBtn").on('click',function(){
         var $parentVal = $(this).parents('form');
         var askQue = $parentVal.find('#textMain').val();
         var askbody = $parentVal.find('textarea').val();
         var nowTime = new Date();
         var detailTime = nowTime.toLocaleString();//获取当前时间
-        if(askQue!="" && askbody!=""){
+        if(askQue!="" && askbody!=""){//判断表单是否为空
             $(".sec-center ul").append('<li><span>'+askbody+'</span><p><i>'+detailTime+'</i>/<a href="#">'+askQue+'</a></p></li>');
             $('.fly').hide();
         }else{
