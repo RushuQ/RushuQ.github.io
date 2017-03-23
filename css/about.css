@@ -1,0 +1,172 @@
+div.bg {
+  background: url(../image/about-1.jpg) no-repeat center center;
+  height: 280px;
+  width: 100%;
+  margin-top: 58px;
+  background-size: 100% 100%;
+}
+article.aboutUs {
+  height: 100%;
+}
+article.aboutUs .wrapper {
+  width: 980px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 60px;
+  position: relative;
+  margin-bottom: 45px;
+  font-family: "微软雅黑";
+}
+article.aboutUs .wrapper a {
+  color: #444;
+}
+article.aboutUs .wrapper .bodyLeft {
+  position: absolute;
+  top: 25%;
+  left: -140px;
+  z-index: 99;
+}
+article.aboutUs .wrapper .bodyLeft ul li > div:first-child a {
+  margin-right: 10px;
+}
+article.aboutUs .wrapper .bodyLeft ul li > div:first-child span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+article.aboutUs .wrapper .bodyLeft ul li > div:last-child {
+  width: 94%;
+  height: 26px;
+  border-right: 1px solid #444444;
+  margin: 8px 0;
+}
+article.aboutUs .wrapper .bodyLeft ul li:last-child .borderRg {
+  display: none !important;
+}
+article.aboutUs .wrapper .bodyRight {
+  box-sizing: border-box;
+  min-height: 350px;
+}
+article.aboutUs .wrapper .bodyRight ul li dl dt {
+  color: #0665a0;
+  font-weight: bold;
+}
+article.aboutUs .wrapper .bodyRight ul li dl dt:before {
+  content: "";
+  display: inline-block;
+  background: url('../image/before.png') no-repeat;
+  width: 10px;
+  height: 10px;
+  padding: 0 4px;
+}
+article.aboutUs .wrapper .bodyRight ul li dl dd {
+  line-height: 2;
+  font-size: 14px;
+  color: #333;
+}
+article.aboutUs .wrapper .bodyRight > div {
+  display: none;
+  padding: 50px 32px;
+  background: url("../image/83.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+article.aboutUs .wrapper .bodyRight > div.intro1 {
+  display: block;
+}
+article.aboutUs .wrapper .bodyRight > div.intro1 section {
+  text-indent: 17px;
+  line-height: 2em;
+  color: #666;
+}
+article.aboutUs .wrapper .bodyRight > div.intro4 {
+  text-align: center;
+}
+article.aboutUs .wrapper .bodyRight > div.intro4 img {
+  width: 75%;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 h1 {
+  text-align: center;
+  color: #0165b3;
+  padding: 10px;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 p {
+  line-height: 1.8;
+  font-size: 15px;
+  text-indent: 32px;
+  color: #555;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul {
+  width: 78%;
+  margin: 20px auto;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li {
+  font-size: 18px;
+  text-align: center;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  cursor: pointer;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li:hover {
+  background: #bedfff;
+  color: #fff;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li:hover ul {
+  color: #666;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li.title {
+  background: #137fea;
+  color: #fff;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li span {
+  width: 49%;
+  display: inline-block;
+  padding: 12px 0;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li:not(.title) span i {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li:not(.title) span i.turn {
+  opacity: 1;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li i {
+  font-size: 22px;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li ul.detailList {
+  text-align: left;
+  background: #f8fcff;
+  border-bottom: 2px solid #efefef;
+  padding: 16px ;
+  font-size: 15px;
+  display: none;
+}
+article.aboutUs .wrapper .bodyRight > div.intro5 > ul > li ul.detailList li {
+  text-indent: 30px;
+  line-height: 1.6;
+  color: #777;
+}
+.commom {
+  background: #0277c0;
+}
+.action {
+  border: 4px solid #2ea8f5;
+  position: absolute;
+}
+.active {
+  color: #2ea8f5 !important;
+}

@@ -1,0 +1,119 @@
+.big,
+.cases ul li div img,
+.cases ul li div .hide {
+  width: 400px;
+  height: 260px;
+}
+.cases {
+  margin-top: 80px;
+}
+.cases h1 {
+  padding: 40px;
+  text-align: center;
+}
+.cases ul {
+  width: 1000px;
+  margin: 0 auto;
+}
+.cases ul li {
+  float: left;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+.cases ul li:hover img {
+  border: 5px solid #3787d8;
+}
+.cases ul li:hover .hide {
+  background: rgba(0, 0, 0, 0.6);
+}
+.cases ul li div {
+  position: relative;
+  width: 400px;
+}
+.cases ul li div img {
+  box-sizing: border-box;
+}
+.cases ul li div .hide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.cases ul li .word {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  color: #eee;
+  font-weight: normal;
+  cursor: pointer;
+}
+.cases ul li .word i {
+  font-size: 60px;
+  font-weight: normal;
+}
+.boxStyle {
+  width: 440px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  display: none;
+  top: 20%;
+}
+.boxStyle span {
+  position: absolute;
+  right: 10%;
+  display: inline-block;
+}
+.boxStyle span a {
+  padding: .6rem;
+  font-size: 1.5rem;
+  color: #0179c2;
+}
+.boxStyle span a:hover {
+  color: #abcdef;
+}
+.boxStyle div.popcontleft {
+  width: 352px;
+  height: 100%;
+  background-color: #b4e5fb;
+  padding: 22px;
+  padding-top: 6px;
+  display: inline-block;
+  border: 3px solid #027bc7;
+  border-radius: 8px;
+}
+.boxStyle div.popcontleft div {
+  display: inline-block;
+}
+.boxStyle div.popcontleft .poptitle {
+  text-align: left;
+  font-size: 28px;
+  color: #fff;
+  padding-top: 20px;
+}
+.boxStyle div.popcontleft .poplogo div {
+  border: 3px solid #ace6ff;
+  margin-right: 11px;
+  margin-left: 16px;
+  margin-top: 10px;
+  background: #fff;
+  box-shadow: #0693d8 0 0 10px;
+  border-radius: 6px;
+}
+.boxStyle div.popcontleft .poplogo img {
+  width: 140px;
+  height: 80px;
+}
+.boxStyle div.popcontright {
+  width: 400px;
+  display: inline-block;
+}
+.showCase2 .poplogo div {
+  border-radius: 50% !important;
+  margin-bottom: 12px;
+}
+.showCase2 .poplogo div img {
+  border-radius: 50% !important;
+}
