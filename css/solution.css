@@ -18,8 +18,8 @@ article .wrap .col-left {
   float: left;
   width: 160px;
   position: fixed;
-  top: 42%;
-  left: 130px;
+  top: 52%;
+  z-index: 999;
 }
 article .wrap .col-left .panel {
   clear: both;
