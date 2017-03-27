@@ -6,7 +6,8 @@ $(document).ready(function(){
     function showCase(num) {
       $('.case'+num).show().siblings('.col-right').hide();
     }
-    var leftWidth = -((window.innerWidth - $(".wrap").width())/2-28) +'px';
+    var space = (window.innerWidth - $(".wrap").width())/2;
+    var leftWidth = -(space-space/2) +'px';
     var $navLeft =  $(".col-left");
       $navLeft.css({
         marginLeft: ''+leftWidth+''
