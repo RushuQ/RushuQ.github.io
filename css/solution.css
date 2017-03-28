@@ -19,6 +19,7 @@ article .wrap .col-left {
   width: 160px;
   position: fixed;
   top: 52%;
+  margin-left: -80px;
   z-index: 999;
 }
 article .wrap .col-left .panel {
