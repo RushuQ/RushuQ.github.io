@@ -17,9 +17,11 @@ article .wrap {
 article .wrap .col-left {
   float: left;
   width: 160px;
-  position: fixed;
-  top: 42%;
-  left: 130px;
+  position: absolute;
+  z-index: 999;
+  box-shadow: #e0f5ff 0px 0px 18px;
+  padding: 10px 20px;
+  margin-left: -60px;
 }
 article .wrap .col-left .panel {
   clear: both;
@@ -112,6 +114,7 @@ article .wrap .col-left .panel-main .panel-con ul li ul li a:after {
 }
 article .wrap .col-right {
   display: none;
+  box-shadow: #e0f5ff 0px 0px 18px;
 }
 article .wrap .col-right strong {
   color: #3fb1ff;
@@ -193,9 +196,10 @@ article .wrap .col-right section ul li {
   margin: 10px 0;
   text-align: center;
   padding: 20px 0;
-  background: #f1f9f9;
+  background: rgba(241, 249, 249, 0.7);
   float: left;
   margin-right: 32px;
+  border-radius: 6px;
   height: 324px;
 }
 article .wrap .col-right section ul li:nth-child(3n) {
@@ -344,4 +348,17 @@ article .wrap .col-right section .design li:nth-child(2) img {
   height: 20%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+.turnTop {
+  display: inline-block;
+  position: fixed;
+  right: 2%;
+  bottom: 6%;
+  cursor: pointer;
+  display: none;
+  outline: none;
+}
+.turnTop i {
+  font-size: 42px;
+  color: #0e96f5;
 }

@@ -1,0 +1,86 @@
+.bg {
+  background: url("../image/511.jpg") no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 300px;
+  margin-top: 58px;
+}
+.breadth {
+  width: 980px;
+  margin: 0 auto;
+}
+.outer {
+  background: #0c91f3;
+  line-height: 2;
+}
+.outer p {
+  font-size: 14px;
+  text-indent: 30px;
+}
+.outer .server {
+  color: #fff;
+}
+.outer .server p {
+  color: #eee;
+}
+.outer .server p:first-child {
+  padding: 16px 0;
+}
+.outer .server .pic {
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+.outer .server .pic h3 {
+  font-weight: normal;
+}
+.outer .server .pic span {
+  position: absolute;
+  background: rgba(238, 238, 238, 0.4);
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  cursor: pointer;
+}
+.outer .server .pic span p {
+  color: #fff;
+  position: absolute;
+  top: 42px;
+  left: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  display: none;
+}
+.outer .server .pic span:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+.outer .server .pic span:hover p {
+  display: block;
+}
+.outer .server .pic span:hover i {
+  opacity: .1;
+}
+.outer .server .pic span:nth-child(3) {
+  left: 2%;
+  top: 4%;
+}
+.outer .server .pic span:nth-child(4) {
+  right: 2%;
+  top: 4%;
+}
+.outer .server .pic span:nth-child(4) p {
+  left: 4px;
+  font-size: 15px;
+}
+.outer .server .pic span:nth-child(5) {
+  right: 2%;
+  bottom: 4%;
+}
+.outer .server .pic span:nth-child(6) {
+  left: 2%;
+  bottom: 4%;
+}
+.outer .server .pic span i {
+  font-size: 68px;
+}

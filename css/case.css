@@ -1,56 +1,68 @@
-.big,
-.cases ul li div img,
-.cases ul li div .hide {
+.big {
   width: 400px;
   height: 260px;
 }
 .cases {
-  margin-top: 80px;
-}
-.cases h1 {
-  padding: 40px;
-  text-align: center;
-}
-.cases ul {
   width: 1000px;
   margin: 0 auto;
+  margin-top: 80px;
 }
-.cases ul li {
-  float: left;
-  width: 50%;
+.cases .title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  background: url("../image/title.png");
+  border-radius: 5px 5px 0px 0px;
+}
+.cases .title h2 {
+  font-size: 14px;
+  color: #4AADCA;
+  display: inline-block;
+  margin-left: 55px;
+}
+.cases .caseWrap {
+  padding: 5px 0;
+  display: block;
   text-align: center;
+  line-height: 32px;
+  overflow: hidden;
+}
+.cases .list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+}
+.cases .list li {
+  float: left;
   position: relative;
+  padding-bottom: 5px;
+  padding-top: 80px;
+  text-align: center;
+  height: 33px;
+  width: 200px;
 }
-.cases ul li:hover img {
-  border: 5px solid #3787d8;
-}
-.cases ul li:hover .hide {
-  background: rgba(0, 0, 0, 0.6);
-}
-.cases ul li div {
-  position: relative;
-  width: 400px;
-}
-.cases ul li div img {
-  box-sizing: border-box;
-}
-.cases ul li div .hide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-.cases ul li .word {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  color: #eee;
-  font-weight: normal;
+.cases .list li a {
+  color: #333;
+  text-decoration: none;
   cursor: pointer;
+  font-size: 14px;
 }
-.cases ul li .word i {
-  font-size: 60px;
-  font-weight: normal;
+.cases .list li a:hover img {
+  clip: rect(0 170px 100px 0);
+  border-color: #60beda;
+}
+.cases .list li a img {
+  width: 120px !important;
+  height: 90px !important;
+  margin: 0 0 0 -64px !important;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  clip: rect(0 126px 70px 0);
+  border: 2px solid #eee;
+  border-radius: 4px;
 }
 .boxStyle {
   width: 440px;

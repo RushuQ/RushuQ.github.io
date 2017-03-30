@@ -101,27 +101,92 @@
         </div>
     </header>
     <article class="cases">
-        <h1>百强都选择睿策，你还等啥？</h1>
-        <ul>
-            <li class="col-sm-4">
-                <div><img src="image/pic1.jpg" alt="" />
-                <div class="hide"></div></div>
-                <div class="word" onclick="showCase(1)">
-                    <p><i class="iconfont">&#xe66b;</i></p>
-                    <h2>地产百强企业</h2>
-                </div>
+        <div class="title">
+          <h2>地产百强</h2>
+        </div>
+        <div class="caseWrap">
+          <ul class="list">
+            <li>
+              <a href="#">
+                <img src="image/case-1.jpg" alt="星河湾" />星河湾
+              </a>
             </li>
-            <li class="col-sm-4">
-                <div><img src="image/activities3.jpg" alt="" />
-                <div class="hide"></div></div>
-                <div class="word" onclick="showCase(2)">
-                    <p><i class="iconfont">&#xe6c2;</i></p>
-                    <h2> 标杆客户</h2>
-                </div>
+            <li>
+              <a href="#">
+                <img src="image/case-2.jpg" alt="万科" />万科
+              </a>
             </li>
-        </ul>
+            <li>
+              <a href="#">
+                <img src="image/case-3.jpg" alt="金地集团" />金地集团
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-4.jpg" alt="佳兆业" />佳兆业
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-5.jpg" alt="景瑞地产" />景瑞地产
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-6.jpg" alt="旭辉集团" />旭辉集团
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="title">
+          <h2>标杆客户</h2>
+        </div>
+        <div class="caseWrap">
+          <ul class="list">
+            <li>
+              <a href="#">
+                <img src="image/case-7.png" alt="城建地产" />城建地产
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-8.png" alt="鼎峰地产" />鼎峰地产
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-9.png" alt="长城地产" />长城地产
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-10.png" alt="鹏基集团" />鹏基集团
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-11.png" alt="汇景集团" />汇景集团
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-12.png" alt="能源集团有限公司" />能源集团有限公司
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-13.png" alt="深业泰然" />深业泰然
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="image/case-14.png" alt="东方城" />东方城
+              </a>
+            </li>
+          </ul>
+        </div>
     </article>
-    <div class="showCase1 box boxStyle">
+    <!-- <div class="showCase1 box boxStyle">
         <div class="popcontleft">
             <span><a href="javascript:;" class="iconfont cha">&#xe701;</a></span>
              <div class="poptitle">百强企业</div>
@@ -172,7 +237,8 @@
                     </div>
              </div>
         </div>
-    </div>
+    </div> -->
+
     <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
     <script type="text/javascript">
     function showCase(num){
@@ -181,6 +247,14 @@
     $('.cha').click(function() {
         $(this).parents('.box').hide();
     });
+    /*var long = $(".list").children().length;
+    console.log(long);
+         
+    long = Math.ceil(long/4);
+    console.log(long)
+         
+    $(".list").height(($(".list").find('li:first-child').height()+84)*long);*/
+         
     </script>
 </body>
 </html>
