@@ -20,7 +20,7 @@ article .wrap .col-left {
   position: absolute;
   z-index: 999;
   box-shadow: #e0f5ff 0px 0px 18px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   margin-left: -60px;
 }
 article .wrap .col-left .panel {

@@ -5,7 +5,7 @@ $(document).ready(function(){
     });
     
     var space = (window.innerWidth - $(".wrap").width())/2;
-    var leftWidth = (space-space/2) +'px';
+    var leftWidth = (space-space/3) +'px';
     var $navLeft =  $(".col-left");
       $navLeft.css({
         left: '-'+leftWidth+''
