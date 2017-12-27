@@ -20,6 +20,9 @@
             :data-index="index">{{item}}</li>
       </ul>
     </div>
+    <div class="list-fixed" v-show="fixedTitle">
+      <h1 class="fixed-title">{{fixedTitle}}</h1>
+    </div>
   </scroll>
 </template>
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -103,7 +106,8 @@
     data() {
       return {
         scrollY: -1,
-        currentIndex: 0
+        currentIndex: 0,
+        diff: -1
       }
     },
     props: {
@@ -120,6 +124,12 @@
         return this.data.map((group) => {
           return group.title.substr(0, 1);
         });
+      },
+      fixedTitle() {
+        if(this.scrollY > 0){
+          return;
+        }
+        return this.data[this.currentIndex]?this.data[this.currentIndex].title:'';
       }
     },
     methods: {
@@ -141,12 +151,22 @@
         this.scrollY = pos.y;
       },
       _scrollTo(index) {
+        if(!index && index != 0){
+          return;
+        }
+        if(index < 0){
+          index = 0;
+        } else if (index > this.listHeight.length - 2){
+          index = this.listHeight.length - 2;
+        }
+        this.scrollY = -this.listHeight[index]
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight() {
         this.listHeight = [];
         const list = this.$refs.listGroup;
         let height = 0;
+        this.listHeight.push(height);
         for (let i = 0; i < list.length; i++) {
           let item = list[i];
           height += item.clientHeight;
@@ -162,15 +182,28 @@
       },
       scrollY(newY) {
         const listHeight = this.listHeight;
-        for (let i = 0; i < listHeight.length; i++) {
+        if(newY > 0){
+          this.currentIndex = 0;
+          return;
+        }
+        for (let i = 0; i < listHeight.length -1; i++) {
           let height1 = listHeight[i];
           let height2 = listHeight[i + 1];
-          if ((-newY >= height1 && -newY < height2)) {
+          if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i;
+            this.diff = height2 + newY;
             return;
           }
         }
-        this.currentIndex = 0;
+        this.currentIndex = listHeight.length - 2;
+      },
+      diff(newVal) {
+        let fixedTop = (newVal > 0 && newVal < TITLE_HEIGHT) ? newVal - TITLE_HEIGHT : 0
+        if (this.fixedTop === fixedTop) {
+          return
+        }
+        this.fixedTop = fixedTop
+        this.$refs.fixed.style.transform = `translate3d(0,${fixedTop}px,0)`
       }
     }
   }
