@@ -4,7 +4,7 @@
       <li v-for="group in data" class="list-group" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li v-for="items in group.item" class="list-group-item">
+          <li @click="selectItem(items)" v-for="items in group.item" class="list-group-item">
             <img class="avatar" v-lazy="items.avatar">
             <span class="name">{{items.name}}</span>
           </li>
@@ -20,7 +20,7 @@
             :data-index="index">{{item}}</li>
       </ul>
     </div>
-    <div class="list-fixed" v-show="fixedTitle">
+    <div class="list-fixed" v-show="fixedTitle" ref="fixed">
       <h1 class="fixed-title">{{fixedTitle}}</h1>
     </div>
   </scroll>
@@ -75,7 +75,7 @@
           color: $color-theme
     .list-fixed
       position: absolute
-      top: 0
+      top: -1px
       left: 0
       width: 100%
       .fixed-title
@@ -133,6 +133,9 @@
       }
     },
     methods: {
+      selectItem(item) {
+        this.$emit('select',item);
+      },
       onShortcutTouchStart(e) {
         let anchorIndex = getData(e.target, 'index');
         this.touch.anchorIndex = anchorIndex;
