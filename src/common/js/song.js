@@ -13,12 +13,20 @@ export default class Song {
     this.url = url
   }
   getLyric() {
-    getLyric(this.mid).then(res => {
-      if(res.retcode === ERR_OK){
-        this.lyric = Base64.decode(res.lyric)
-        console.log(this.lyric)
-      }
+    if(this.lyric) {
+      return Promise.resolve(this.lyric);
+    }
+    return new Promise((resolve,reject) => {
+      getLyric(this.mid).then(res => {
+        if(res.retcode === ERR_OK){
+          this.lyric = Base64.decode(res.lyric)
+          resolve(this.lyric);
+        } else {
+          reject('no lyric');
+        }
+      })
     })
+
   }
 }
 export function createSong(musicData) {
@@ -30,7 +38,7 @@ export function createSong(musicData) {
     album: musicData.albumname,
     duration: musicData.interval,
     image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
-    url: `http://dl.stream.qqmusic.qq.com/C400${musicData.songmid}.m4a?vkey=967219012AE11786AC888397D9D8008C9506D9DB92AE1EB4117CCBBFDB22DC44B98837ABEC007FBCF94FAA5D8896FF997EB5449348C9F7C0&guid=6335167350&uin=864221359&fromtag=66`
+    url: `http://dl.stream.qqmusic.qq.com/C400${musicData.songmid}.m4a?vkey=9D4744FD0C5ED6A8F2FBFD0CE69F42735D67108A115798537A71B2E53E66CDD735722730BE7EB39B1F4776D74FAFFE612264088A7F285138&guid=6335167350&uin=864221359&fromtag=66`
   })
 }
 function filterSinger(singer) {
