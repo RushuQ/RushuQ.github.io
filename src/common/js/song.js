@@ -1,4 +1,4 @@
-import {getLyric} from "@/api/song";
+import {getLyric,getSongKey} from "@/api/song";
 import  {ERR_OK} from "@/api/config";
 import {Base64} from 'js-base64'
 export default class Song {
@@ -30,6 +30,7 @@ export default class Song {
   }
 }
 export function createSong(musicData) {
+  //let key = getSongKey(musicData)
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,

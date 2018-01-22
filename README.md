@@ -1,7 +1,6 @@
 # my-music
 
 > making a music app with vue and related plugins
-Through the current popular framework to imitate QQ music production of a mobile terminal music, as long as vue-based, under the main pieces of fill
 
 ## Build Setup
 
