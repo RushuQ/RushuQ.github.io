@@ -38,14 +38,21 @@ export function getSongList(disstid) {
   const data = Object.assign({}, commonParams, {
     disstid,
     type: 1,
+    uin:0,
     json: 1,
     utf8: 1,
     onlysong: 0,
-    platform: 'yqq',
-    hostUin: 0,
-    needNewCode: 0,
-    g_tk: 6723076
+    platform: 'h5',
+    needNewCode: 1,
+    new_format:1,
+    picmid:1,
+    nosign:1,
+    song_begin:0,
+    song_num:15,
+    pic:500,
+    g_tk: 5381,
+    _:1516761936206
   })
 
-  return jsonp(url, data, options)
+  return jsonp(url, data)
 }
