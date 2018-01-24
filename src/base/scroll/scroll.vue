@@ -59,6 +59,13 @@
               _this.$emit('scroll',pos);
             })
           }
+          if(this.pullup) {
+            this.scroll.on('scrollEnd', () => {
+              if(this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+                this.$emit('scrollToEnd');
+              }
+            })
+          }
         },
         refresh() {
           this.scroll && this.scroll.refresh()
