@@ -66,6 +66,11 @@
               }
             })
           }
+          if(this.beforeScroll){
+            this.scroll.on('beforeScrollStart',() => {
+              this.$emit('beforeScroll');
+            })
+          }
         },
         refresh() {
           this.scroll && this.scroll.refresh()
