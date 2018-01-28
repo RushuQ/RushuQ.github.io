@@ -69,9 +69,11 @@
   import {ERR_OK} from '@/api/config'
   import Scroll from '@/base/scroll/scroll'
   import Loading from '@/base/loading/load'
+  import {playlistMixin} from '@/common/js/mixin'
   import {mapMutations} from 'vuex'
 
   export default {
+    mixins: [playlistMixin],
     data() {
       return {
         topList: []
@@ -85,6 +87,11 @@
       Loading
     },
     methods: {
+      handlePlaylist(playlist) {
+        const bottom = playlist.length > 0 ? '60px' : ''
+        this.$refs.rank.style.bottom = bottom
+        this.$refs.topList.refresh();
+      },
       _getTopList() {
         getTopList().then(res => {
           if (res.code === ERR_OK) {

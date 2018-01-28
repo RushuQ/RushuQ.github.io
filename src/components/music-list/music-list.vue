@@ -117,6 +117,7 @@
   import songList from '@/base/song-list/song-list';
   import Scroll from '@/base/scroll/scroll';
   import {prefixStyle} from '@/common/js/dom';
+  import {playlistMixin} from '@/common/js/mixin'
   import Loading from '@/base/loading/load';
   import {mapActions} from 'vuex';
 
@@ -124,6 +125,7 @@
   const transform = prefixStyle('transform')
   const backdrop = prefixStyle('backdrop-filter')
   export default {
+    mixins: [playlistMixin],
     props: {
       bgImage: {
         type: String,
@@ -183,6 +185,11 @@
         this.randomPlay({
           list: this.songs
         });
+      },
+      handlePlaylist(playlist) {
+        const bottom = playlist.length > 0 ? '60px' : ''
+        this.$refs.list.$el.style.bottom = bottom
+        this.$refs.list.refresh()
       },
       ...mapActions([
         'selectPlay',

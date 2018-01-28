@@ -23,6 +23,7 @@
   import Scroll from '@/base/scroll/scroll';
   import Loading from '@/base/loading/load'
   import NoResult from '@/base/no-result/no-result'
+  import Singer from '@/common/js/Singer'
   import {mapMutations,mapActions} from 'vuex';
 
   const TYPE_SINGER = 'singer'
@@ -54,6 +55,9 @@
       NoResult
     },
     methods: {
+      refresh() {
+        this.$refs.suggest.refresh()
+      },
       search() {
         this.hasMore = true;
         this.page = 1;
@@ -79,7 +83,6 @@
         if(item.type === TYPE_SINGER){
           return item.singername
         } else {
-          console.log(item)
           return `${item.name}-${item.singer}`
         }
       },
@@ -89,6 +92,7 @@
             id: item.singermid,
             name: item.singername
           })
+          console.log(singer)
           this.$router.push({
             path: `/search/${singer.id}`
           })
@@ -124,8 +128,6 @@
         }
       },
       _genResult(data){
-        let ret = [];
-        if(data.zhida && data.zhida.singerid) {
           let ret = []
           if (data.zhida && data.zhida.singerid) {
             ret.push({...data.zhida, ...{type: TYPE_SINGER}})
@@ -134,7 +136,6 @@
             ret = ret.concat(this._normalizeSongs(data.song.list))
           }
           return ret
-        }
       },
       ...mapMutations({
         setSinger: 'SET_SINGER'

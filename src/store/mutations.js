@@ -29,7 +29,7 @@ const matutions = {
     state.topList = topList;
   },
   [types.SET_SEARCH_HISTORY](state, history) {
-    state.playHistory = history
+    state.searchHistory = history
   }
 }
 
