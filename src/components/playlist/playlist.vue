@@ -24,7 +24,7 @@
           </transition-group>
         </scroll>
         <div class="list-operate">
-          <div class="add">
+          <div class="add" @click="addSong()">
             <i class="icon-add"></i>
             <span class="text">添加歌曲到队列</span>
           </div>
@@ -34,6 +34,7 @@
         </div>
       </div>
       <comfirm ref="comfirm" text="是否清空播放列表" confirmBtnText="清空" @comfirm="confirmClear"></comfirm>
+      <add-song ref="addSong"></add-song>
     </div>
   </transition>
 </template>
@@ -42,7 +43,7 @@
   import Scroll from '@/base/scroll/scroll';
   import {playMode} from '@/common/js/config'
   import Comfirm from '@/base/comfirm/comfirm';
-
+  import AddSong from '@/components/add-song/add-song'
   export default {
     data() {
       return {
@@ -59,7 +60,8 @@
     },
     components: {
       Scroll,
-      Comfirm
+      Comfirm,
+      AddSong
     },
     methods: {
       showConfirm() {
@@ -105,6 +107,9 @@
         if(!this.playlist.length){
           this.hide();
         }
+      },
+      addSong(){
+        this.$refs.addSong.show();
       },
       ...mapMutations({
         setCurrentIndex: 'SET_CURRENT_INDEX',
