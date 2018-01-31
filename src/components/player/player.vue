@@ -342,16 +342,17 @@
   import {prefixStyle} from '@/common/js/dom';
   import ProgressBar from '@/base/progress-bar/progress-bar';
   import ProgressCircle from '@/base/progress-circle/progress-circle';
-  import {playMode} from '@/common/js/config';
-  import {shuffe} from '@/common/js/util'
+
+
   import Lyric from 'lyric-parser';
   import Scroll from '@/base/scroll/scroll';
   import Playlist from '@/components/playlist/playlist'
-
+import {playerMixin} from '@/common/js/mixin'
   const transform = prefixStyle('transform')
   const transitionDuration = prefixStyle('transitionDuration')
 
   export default {
+    mixins: [playerMixin],
     data() {
       return {
         songReady: false,
@@ -371,12 +372,8 @@
     computed: {
       ...mapGetters([
         'fullScreen',
-        'playlist',
-        'currentSong',
         'playing',
-        'currentIndex',
-        'mode',
-        'sequenceList'
+        'currentIndex'
       ]),
       cdPlay() {
         return this.playing ? 'play' : 'play pause';
@@ -392,9 +389,6 @@
       },
       percent() {
         return this.currentTime / this.currentSong.duration;
-      },
-      iconMode() {
-        return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.loop ? 'icon-loop' : 'icon-random';
       }
     },
     created() {
@@ -510,24 +504,7 @@
           this.currentLyric.seek(0)
         }
       },
-      changeMode() {
-        const mode = (this.mode + 1) % 3;
-        this.setPlayMode(mode);
-        let list = null;
-        if (mode === playMode.random) {
-          list = shuffe(this.sequenceList)
-        } else {
-          list = this.sequenceList;
-        }
-        this.resetCurrentIndex(list);
-        this.setPlayList(list);
-      },
-      resetCurrentIndex(list) {
-        let index = list.findIndex(item => {
-          return item.id === this.currentSong.id;
-        })
-        this.setCurrentIndex(index);
-      },
+
       _getPosAndScale() {
         const targetWidth = 40
         const paddingLeft = 40
@@ -574,7 +551,7 @@
         }).catch(() => {
           this.currentLyric = null;
           this.playingLyric = '';
-          thic.currentLineNum = 0;
+          this.currentLineNum = 0;
         })
       },
       handleLyric({lineNum, txt}) {
@@ -645,11 +622,7 @@
         this.$refs.middleL.style[transitionDuration] = `${time}ms`
       },
       ...mapMutations({//修改mutation状态
-        setFullScreen: 'SET_FULL_SCREEN',
-        setPlayingState: 'SET_PLAYING_STATE',
-        setCurrentIndex: 'SET_CURRENT_INDEX',
-        setPlayMode: 'SET_PLAY_MODE',
-        setPlayList: 'SET_PLAYLIST'
+        setFullScreen: 'SET_FULL_SCREEN'
       }),
       ...mapActions([
         'savePlayHistory'

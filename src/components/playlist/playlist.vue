@@ -4,12 +4,12 @@
       <div class="list-wrapper" @click.stop>
         <div class="list-header">
           <h1 class="title">
-            <i class="icon"></i>
-            <span class="text"></span>
+            <i class="icon" :class="iconMode" @click="changeMode"></i>
+            <span class="text">{{modeText}}</span>
             <span class="clear" @click="showConfirm"><i class="icon-clear"></i></span>
           </h1>
         </div>
-        <scroll class="list-content" ref="listContent" :data="sequenceList">
+        <scroll class="list-content" :refreshDelay="refreshDelay" ref="listContent" :data="sequenceList">
           <transition-group tag="ul" ref="list">
             <li :key="item.id" class="item" ref="listItem" v-for="(item,index) in sequenceList" @click="selectItem(item,index)">
               <i class="current" :class="getCurrentIcon(item)"></i>
@@ -42,21 +42,22 @@
   import {mapGetters,mapMutations,mapActions} from 'vuex';
   import Scroll from '@/base/scroll/scroll';
   import {playMode} from '@/common/js/config'
+  import {playerMixin} from '@/common/js/mixin'
   import Comfirm from '@/base/comfirm/comfirm';
   import AddSong from '@/components/add-song/add-song'
+
   export default {
+    mixins: [playerMixin],
     data() {
       return {
-        showFlag: false
+        showFlag: false,
+        refreshDelay: 100
       }
     },
     computed: {
-      ...mapGetters([
-        'sequenceList',
-        'currentSong',
-        'mode',
-        'playlist'
-      ])
+      modeText() {
+        return this.mode === playMode.sequence ? '顺序播放' : this.mode === playMode.random ? '随机播放' : '单曲循环'
+      }
     },
     components: {
       Scroll,
@@ -111,10 +112,6 @@
       addSong(){
         this.$refs.addSong.show();
       },
-      ...mapMutations({
-        setCurrentIndex: 'SET_CURRENT_INDEX',
-        setPlayState: 'SET_PLAYING_STATE'
-      }),
       ...mapActions([
         'deleteSong',
         'deleteSongList'

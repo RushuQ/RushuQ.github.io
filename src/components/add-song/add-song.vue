@@ -13,25 +13,37 @@
       <div class="shortcut" v-show="!query">
         <switches :switches="switches" :currentIndex="currentIndex" @switch="switchItem"></switches>
         <div class="list-wrapper">
-          <scroll ref="songList" :data="playHistory" v-if="currentIndex===0" class="list-scroll">
+          <scroll ref="songList" :data="playHistory" v-if="currentIndex===0" class="list-scroll" :refreshDelay="refreshDelay">
             <div class="list-inner">
               <song-list :songs="playHistory" @select="selectSong"></song-list>
+            </div>
+          </scroll>
+          <scroll ref="searchList" :refreshDelay="refreshDelay" class="list-scroll" v-if="currentIndex===1" :data="searchHistory">
+            <div class="list-inner">
+              <search-list :searches="searchHistory" @delete="deleteSearchHistory" @select="addQuery"></search-list>
             </div>
           </scroll>
         </div>
       </div>
       <div class="search-result" v-show="query">
-        <suggest :query="query" ref="suggest" @select="saveSearch" @listScroll="blurInput"></suggest>
+        <suggest :query="query" ref="suggest" @select="selectSuggest" @listScroll="blurInput"></suggest>
       </div>
+      <top-tip ref="topTip">
+        <div class="tip-title">
+          <i class="icon-ok"></i>
+          <span class="text">1首歌曲已经添加到播放列表</span>
+        </div>
+      </top-tip>
     </div>
   </transition>
 </template>
 <script>
   import SearchBox from '@/base/search-box/search-box';
-  import SearchList from '@/base/song-list/song-list';
+  import SearchList from '@/base/search-list/search-list';
   import Switches from '@/base/switches/switches';
   import Scroll from '@/base/scroll/scroll';
   import SongList from '@/base/song-list/song-list';
+  import TopTip from '@/base/top-tip/top-tip';
   import Suggest from '@/components/suggest/suggest';
   import {searchMixin} from '@/common/js/mixin'
   import Song from '@/common/js/song'
@@ -59,7 +71,8 @@
       Suggest,
       Switches,
       SongList,
-      Scroll
+      Scroll,
+      TopTip
     },
     computed: {
       ...mapGetters([
@@ -69,6 +82,13 @@
     methods: {
       show() {
         this.showFlog = true;
+        setTimeout(() => {
+          if(this.currentIndex === 0) {
+            this.$refs.songList.refresh();
+          } else {
+            this.$refs.searchList.refresh()
+          }
+        },20)
       },
       hide() {
         this.showFlog = false;
@@ -76,10 +96,15 @@
       switchItem(index) {
         this.currentIndex = index;
       },
-      selectSong(item,index) {
+      selectSong(song,index) {
         if (index !== 0) {
-          this.mapActions(new Song(song))
+          this.insertSong(new Song(song))
+          this.$refs.topTip.show()
         }
+      },
+      selectSuggest() {
+        this.$refs.topTip.show();
+        this.saveSearch()
       },
       ...mapActions([
         'insertSong'
