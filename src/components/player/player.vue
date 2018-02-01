@@ -65,7 +65,7 @@
               <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon-not-favorite"></i>
+              <i @click="toggleFavorite(currentSong)" :class="getFavoriteIcon(currentSong)"></i>
             </div>
           </div>
         </div>
@@ -342,8 +342,6 @@
   import {prefixStyle} from '@/common/js/dom';
   import ProgressBar from '@/base/progress-bar/progress-bar';
   import ProgressCircle from '@/base/progress-circle/progress-circle';
-
-
   import Lyric from 'lyric-parser';
   import Scroll from '@/base/scroll/scroll';
   import Playlist from '@/components/playlist/playlist'
@@ -635,7 +633,8 @@ import {playerMixin} from '@/common/js/mixin'
         if (this.currentLyric) {
           this.currentLyric.stop();
         }
-        setTimeout(() => {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
           this.$refs.audio.play();
           this.getLyric();
         }, 1000)

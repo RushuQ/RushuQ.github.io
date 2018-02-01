@@ -109,9 +109,9 @@ export const savePlayHistory = function ({commit}, song) {
 }
 
 export const saveFavoriteList = function ({commit}, song) {
-  commit(types.SET_FAVORITE_LIST, saveFavorite(song))
+  commit(type.SET_FAVORITE_LIST, saveFavorite(song))
 }
 
 export const deleteFavoriteList = function ({commit}, song) {
-  commit(types.SET_FAVORITE_LIST, deleteFavorite(song))
+  commit(type.SET_FAVORITE_LIST, deleteFavorite(song))
 }
